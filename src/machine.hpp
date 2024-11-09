@@ -7,10 +7,6 @@
 #include "io.hpp"
 using namespace std;
 
-struct Instruction{
-	string name;
-	int operand;
-};
 
 class Machine{
 

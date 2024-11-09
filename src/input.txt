@@ -1,0 +1,16 @@
+
+.func:
+
+
+
+
+done
+
+.main:
+
+    call .func
+    
+
+
+
+
