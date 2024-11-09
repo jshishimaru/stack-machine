@@ -1,14 +1,13 @@
-
-.func:
-
-
-
-
-done
-
 .main:
 
-    call .func
+	push 1
+	push 1
+	add 
+	inc 
+	push 2
+	mul
+	inc
+	print
     
 
 

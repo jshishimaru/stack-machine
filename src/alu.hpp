@@ -16,6 +16,11 @@ class ALU{
 	bool gt;
 	bool eq;
 
+	ALU(){
+		gt=0;
+		eq=0;
+	}
+
 	void setStacks( vector <int> &dataStack , vector <int> &returnStack, int &pc ){
 		this->dataStack = &dataStack;
 		this->returnStack = &returnStack;
@@ -113,6 +118,26 @@ class ALU{
 		return 0;
 	}
 
+	int inc(){
+		if (dataStack->size() == 0) {
+			throw runtime_error("Stack underflow error");
+		}
+		int a = dataStack->back();
+		dataStack->pop_back();
+		dataStack->push_back(a + 1);
+		return 0;
+	}
+
+	int dec(){
+		if (dataStack->size() == 0) {
+			throw runtime_error("Stack underflow error");
+		}
+		int a = dataStack->back();
+		dataStack->pop_back();
+		dataStack->push_back(a - 1);
+		return 0;
+	}
+
 	int mul(){
 		if (dataStack->size() < 2) {
 			throw runtime_error("Stack underflow error");
@@ -185,6 +210,16 @@ class ALU{
 		return 0;
 	}
 
+	int bit_not(){
+		if (dataStack->size() == 0) {
+			throw runtime_error("Stack underflow error");
+		}
+		int a = dataStack->back();
+		dataStack->pop_back();
+		dataStack->push_back(~a);
+		return 0;
+	}
+
 	int cmp(){
 		if (dataStack->size() < 2) {
 			throw runtime_error("Stack underflow error");
@@ -242,14 +277,6 @@ class ALU{
 
 	int halt(){
 		*pc = -1;
-		return 0;
-	}
-
-	int print(){
-		if (dataStack->size() == 0) {
-			throw runtime_error("Stack underflow error");
-		}
-		cout << dataStack->back() << endl;
 		return 0;
 	}
 

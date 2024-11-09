@@ -19,6 +19,7 @@ class IO{
 	vector <int> output;
 	map <string, int> label_begins;
 	vector <Instruction>* memory;
+	vector <int>* dataStack;
 
 	IO(){
 		this->input = vector<Instruction>(1024);
@@ -26,8 +27,13 @@ class IO{
 		this->label_begins = map<string, int>();
 	}
 
-	void setMemory(vector <Instruction>& memory){
+	void setMemory(vector <Instruction>& memory , vector <int>& dataStack){
 		this->memory = &memory;
+		this->dataStack = &dataStack;
+	}
+
+	void print(){
+		cout << *(dataStack->end()) << endl;
 	}
 	
 	void readInput(string filename){
