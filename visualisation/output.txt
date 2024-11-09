@@ -1,0 +1,19 @@
+Memory: push 1,push 2,add
+
+Current Instruction: push 1
+Data Stack: 1
+Return Stack:
+PC:1
+
+Current Instruction: push 2
+Data Stack: 1 2
+Return Stack:
+PC:2
+
+Current Instruction: add
+Data Stack: 3
+Return Stack:
+PC:3
+
+
+
