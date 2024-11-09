@@ -16,7 +16,7 @@ class Machine{
 
 	public:
 	int memory_size;
-	vector <int> memory;
+	vector <Instruction> memory;
 	vector <int> dataStack;
 	vector <int> returnStack;
 	ALU alu;
@@ -25,9 +25,9 @@ class Machine{
 
 	Machine( int memory_size ){
 		this->memory_size = memory_size;
-		this->memory = vector<int>(memory_size, 0);
-		this->dataStack = vector<int>(1024,0);
-		this->returnStack = vector<int>(1024,0);
+		this->memory = vector<Instruction>(memory_size);
+		this->dataStack = vector<int>();
+		this->returnStack = vector<int>();
 		this->pc = 0;
 	}
 
