@@ -161,7 +161,6 @@ class IO{
 				}			
 			}
 			file.close();
-			cout<<endl;
 		}
 		else{
 			cout << "Failed to open file: " << filename << endl;

@@ -8,11 +8,11 @@ int main(int argc, char* argv[]){
 		return 1;
 	}
 	Machine machine(1024,argv[1]);
-	for (int i = 0; i < 20; i++){
-        // if(machine.ioModule.input[i].name == "halt") break;
-        cout<<machine.ioModule.input[i].name<<" "<<machine.ioModule.input[i].operand<<endl;
-    }
-    cout<<endl;
+	// for (int i = 0; i < 20; i++){
+    //     // if(machine.ioModule.input[i].name == "halt") break;
+    //     cout<<machine.ioModule.input[i].name<<" "<<machine.ioModule.input[i].operand<<endl;
+    // }
+    // cout<<endl;
     machine.run();
 
 	return 0;

@@ -29,15 +29,39 @@ class Machine{
 	}
 
 	void run(){
-		ofstream outputFile("output.txt");
+		ofstream outputFile("./visualisation/output.txt");
 		cout<<"starting the machine..."<<endl;
-		
-		while( pc!=-1 && pc < ioModule.input.size() ){
-			outputFile << "Current Instruction: ";
 
+		outputFile << "Memory: ";
+		for (int i = 0; i < ioModule.input.size(); i++) {
+			if(ioModule.input[i].name == "push")
+				outputFile << ioModule.input[i].name<<" " << ioModule.input[i].operand << ",";
+			else if(ioModule.input[i].name == "label")
+				outputFile << "label "<<ioModule.labels[ioModule.input[i].operand] << ",";
+			else if(ioModule.input[i].name == "b" || ioModule.input[i].name == "beq" || ioModule.input[i].name == "bgt" || ioModule.input[i].name == "call")
+				outputFile << ioModule.input[i].name << " " << ioModule.labels[ioModule.input[i].operand] << ",";
+			else
+				outputFile << ioModule.input[i].name << ",";
+		}
+		outputFile << endl;
+		while( pc!=-1 && pc < ioModule.input.size() ){
 			Instruction instr = ioModule.input[pc];
+			int temp = pc;
+			outputFile << "\nCurrent Instruction: "<<instr.name<<" ";
+			if(instr.name == "push"){
+				outputFile << instr.operand << "\n";
+			}
+			else if(instr.name == "bgt" || instr.name == "beq" || instr.name == "b" || instr.name == "call"){
+				outputFile << ioModule.labels[instr.operand] << "\n";
+			}
+			else if(instr.name == "label"){
+				outputFile << ioModule.labels[pc] << "\n";
+			}
+			else{
+				outputFile << "\n";
+			}
+
 			if( instr.name == "push"){
-				outputFile << instr.name << " " << instr.operand << "\n";
 				alu.push(instr.operand);
 			}
 			else if( instr.name == "bgt"){
@@ -117,7 +141,7 @@ class Machine{
 			}
 			else if( instr.name == "halt"){
 				alu.halt();
-				break;
+				
 			}
 			else{
 				throw runtime_error("Invalid instruction");
@@ -130,11 +154,21 @@ class Machine{
 				pc = -1;
 			}
 
-			// cout << "dataStack: ";
-			// for(int i : dataStack){
-			// 	cout << i << " ";
-			// }
-			// cout << endl;
+			outputFile << "Data Stack: ";
+			for(int i : dataStack){
+				outputFile << i << " ";
+			}
+			outputFile << endl;
+			outputFile << "Return Stack: ";
+			for(int i : returnStack){
+				outputFile << i << " ";
+			}
+			outputFile << endl;
+			outputFile << "PC: " << temp << endl;
+
+			if(instr.name == "halt"){
+				break;
+			}
 			
 		}
 		cout<<"Ending the machine..."<<endl;
