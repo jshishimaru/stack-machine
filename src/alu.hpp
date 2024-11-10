@@ -2,6 +2,7 @@
 #define ALU_HPP
 
 #include <bits/stdc++.h>
+#include "io.hpp"
 using namespace std;
 
 class ALU{
@@ -10,6 +11,9 @@ class ALU{
 
 	vector <int>* dataStack;
 	vector <int>* returnStack;
+	vector <Instruction>* memory;
+	map< int16_t , int> variables; // map of string to offsets
+	int stack_pointer;
 	int* pc;
 	bool gt;
 	bool eq;
@@ -21,13 +25,16 @@ class ALU{
 		branch=0;
 	}
 
-	void setStacks( vector <int> &dStack , vector <int> &rStack, int& p_c){
+	void setStacks( vector <int> &dStack , vector <int> &rStack, int& p_c , vector <Instruction> &memory){
 		this->dataStack = &dStack;
 		this->returnStack = &rStack;
 		this->pc = &p_c;
+		this->memory = &memory;
 		gt=0;
 		eq=0;
 		branch=0;
+		stack_pointer = 512;
+		
 	}
 
 	int push( int operand ){
@@ -54,7 +61,7 @@ class ALU{
 	}
 
 	int drop(){
-		if (returnStack->size() == 0) {
+		if (dataStack->size() == 0) {
 			throw runtime_error("Stack underflow error");
 		}
 		dataStack->pop_back();
@@ -298,6 +305,38 @@ class ALU{
 		(*pc) = -1;
 		return 0;
 	}
+
+	int var( int var ){	
+		int16_t var_name = var & 0xFFFF0000;
+		int16_t val = var & 0x0000FFFF;
+		variables[var_name] = stack_pointer;
+		stack_pointer++;
+		return 0;
+	}
+
+	int store_var( int var ){
+
+		int16_t var_name = var & 0xFFFF0000;
+		int16_t val = var & 0x0000FFFF;
+		if( variables.find(var_name) == variables.end() ){
+			throw runtime_error("Variable not declared");
+		}
+		Instruction variable = { "", val };
+		(*memory)[variables[var_name]] = variable;
+		return 0;
+	}
+
+	int load_var( int var ){
+
+		int16_t var_name = var & 0xFFFF0000;
+		int16_t val = var & 0x0000FFFF;
+		if( variables.find(var_name) == variables.end() ){
+			throw runtime_error("Variable not declared");
+		}
+		dataStack->push_back((*memory)[variables[var_name]].operand);
+		return 0;
+	}	
+
 
 };
 

@@ -1,31 +1,9 @@
-.foo:
-    add
-    print
-    push 2
-    add
-	print
-    halt
-.func:
-    push 9
-    add
-    print
-    ret
 .main:
 	push 1
-	push 2
-    cmp
-    beq .foo
-	add 
-    call .func
-	inc 
-	push 2
-	mul
-	inc
-    print
-    halt
-
-    
-
-
-
-
+	print
+	drop
+	var a
+	store a 5
+	load a
+	print
+halt
