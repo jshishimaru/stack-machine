@@ -31,17 +31,8 @@ class Machine{
 	void run(){
 		ofstream outputFile("output.txt");
 		cout<<"starting the machine..."<<endl;
-		// cout<<"Initial data :"<<endl;
-		// cout<<"pc : "<<pc<<endl;
-		// cout << "dataStack: ";
-		// for(int i : dataStack){
-		// 	cout << i << " ";
-		// }
-		// cout << endl;
-		// cout<<endl;
 		
 		while( pc!=-1 && pc < ioModule.input.size() ){
-			// cout<<"pc : "<<pc<<endl;
 			outputFile << "Current Instruction: ";
 
 			Instruction instr = ioModule.input[pc];

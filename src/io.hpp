@@ -14,6 +14,7 @@ class IO{
 	vector <Instruction> input;
 	vector <int> output;
 	map <string, int> label_begins;
+	map <int,string> labels;
 	vector <Instruction>* memory;
 	vector <int>* dataStack;
 
@@ -42,6 +43,7 @@ class IO{
 						label += is_branch_inst[i];
 					}
 					label_begins[label] = ind;
+					labels[ind] = label;
 					
 				}
 				ind++;
@@ -53,9 +55,9 @@ class IO{
 		file.close();
 
 		file.open(filename);
-		ofstream outputFile("output.txt");
+		
 		if(file.is_open()){
-			outputFile << "Memory: " << endl;
+			
 			string line;
 			int index = 0;
 			while(getline(file, line)){
@@ -88,7 +90,6 @@ class IO{
 							if(line[i] == ' ') break;
 							label += line[i];
 						}
-						outputFile << branch << " " << label << ",";
 						
 						instr.name = branch;
 						instr.operand = label_begins[label];
@@ -105,7 +106,6 @@ class IO{
 							if(line[i]==':') break;
 							label += line[i];
 						}
-						outputFile << "label " << label << ",";
 						// label_begins[label] = index;
 						instr.name = "label";
 						instr.operand = 0;
@@ -141,20 +141,17 @@ class IO{
 								oprnd = oprnd*10 + (line[i]-'0');
 							}
 							instr.operand = oprnd;
-							outputFile << operation << " " << oprnd << ",";
 						}
 						else if(operation == "call"){
 							// call .foo
 							for (int i = temp+1; i < line.size(); i++){
 								operand += line[i];
 							}
-							outputFile << operation << " " << operand << ",";
 							instr.operand = label_begins[operand];
 
 						}
 						else{
 							instr.operand = 0;
-							outputFile << operation << ",";
 						}
 						instr.name = operation;
 						input[index] = instr;
@@ -165,37 +162,38 @@ class IO{
 			}
 			file.close();
 			cout<<endl;
-			outputFile.close();
 		}
 		else{
 			cout << "Failed to open file: " << filename << endl;
 		}
+
+		// copy input to memory
 		for (int i = 0; i < input.size(); i++){
 			mem[i] = input[i];
 		}
 
-		
-		// if (outputFile.is_open()) {
-		// 	outputFile << "Memory: " << endl;
-		// 	for (int i = 0; i < input.size(); i++) {
-		// 		if(input[i].name == "push")
-		// 			outputFile << input[i].name << input[i].operand << ",";
-		// 		else if(input[i].name == "label")
-		// 			outputFile << "label "<<input[i].name << ",";
-		// 		else
-		// 			outputFile << input[i].name << ",";
-		// 	}
-		// 	outputFile.close();
-		// } else {
-		// 	cout << "Failed to open output file." << endl;
-		// }
+
+		// scripting output file
+	
+		ofstream outputFile("output.txt");
+		if (outputFile.is_open()) {
+			outputFile << "Memory: " << endl;
+			for (int i = 0; i < input.size(); i++) {
+				if(input[i].name == "push")
+					outputFile << input[i].name << input[i].operand << ",";
+				else if(input[i].name == "label")
+					outputFile << "label "<<labels[input[i].operand] << ",";
+				else if(input[i].name == "b" || input[i].name == "beq" || input[i].name == "bgt" || input[i].name == "call")
+					outputFile << input[i].name << " " << labels[input[i].operand] << ",";
+				else
+					outputFile << input[i].name << ",";
+			}
+			outputFile.close();
+		} else {
+			cout << "Failed to open output file." << endl;
+		}
+
 	}
-
-
-	void print(){
-		cout << *(dataStack->end()) << endl;
-	}
-
 	
 
 };
