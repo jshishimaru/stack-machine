@@ -1,11 +1,9 @@
 #ifndef MACHINE_HPP
 #define MACHINE_HPP
 
-#include <vector>
-#include <string>
+#include <bits/stdc++.h>
 #include "alu.hpp"
 #include "io.hpp"
-#include <map>
 using namespace std;
 
 class Machine{
@@ -19,21 +17,36 @@ class Machine{
 	IO ioModule;
 	int pc;
 
-	Machine( int memory_size ){
+	Machine( int memory_size , string filename ){
 		this->memory_size = memory_size;
-		this->memory = vector<Instruction>(memory_size);
+		this->memory.resize(memory_size);
 		this->dataStack = vector<int>();
 		this->returnStack = vector<int>();
-		this->pc = 0;
-		alu.setStacks(dataStack, returnStack, pc);
-		ioModule.setMemory(memory,dataStack);
+		ioModule.readInput(filename,(this->memory));
+		this->alu.setStacks(this->dataStack, this->returnStack,this->pc);
+		this->pc = ioModule.label_begins["main"];
+		
 	}
 
 	void run(){
-		while( pc!=-1){
+		ofstream outputFile("output.txt");
+		cout<<"starting the machine..."<<endl;
+		// cout<<"Initial data :"<<endl;
+		// cout<<"pc : "<<pc<<endl;
+		// cout << "dataStack: ";
+		// for(int i : dataStack){
+		// 	cout << i << " ";
+		// }
+		// cout << endl;
+		// cout<<endl;
+		
+		while( pc!=-1 && pc < ioModule.input.size() ){
+			// cout<<"pc : "<<pc<<endl;
+			outputFile << "Current Instruction: ";
 
-			Instruction instr = memory[pc];
+			Instruction instr = ioModule.input[pc];
 			if( instr.name == "push"){
+				outputFile << instr.name << " " << instr.operand << "\n";
 				alu.push(instr.operand);
 			}
 			else if( instr.name == "bgt"){
@@ -97,7 +110,7 @@ class Machine{
 				alu.swap();
 			}
 			else if( instr.name == "print"){
-				ioModule.print();
+				alu.print();
 			}
 			else if( instr.name == "label"){
 				// do nothing
@@ -113,11 +126,27 @@ class Machine{
 			}
 			else if( instr.name == "halt"){
 				alu.halt();
+				break;
 			}
 			else{
 				throw runtime_error("Invalid instruction");
 			}
+
+			if(instr.name != "halt" || instr.name != "ret"){
+				pc++;
+			}
+			else if(instr.name == "halt"){
+				pc = -1;
+			}
+
+			// cout << "dataStack: ";
+			// for(int i : dataStack){
+			// 	cout << i << " ";
+			// }
+			// cout << endl;
+			
 		}
+		cout<<"Ending the machine..."<<endl;
 	}
 
 };

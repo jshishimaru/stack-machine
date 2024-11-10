@@ -1,11 +1,7 @@
 #ifndef IO_HPP
 #define IO_HPP
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct Instruction{
@@ -26,28 +22,52 @@ class IO{
 		this->output = vector<int>(1024,0);
 		this->label_begins = map<string, int>();
 	}
-
-	void setMemory(vector <Instruction>& memory , vector <int>& dataStack){
-		this->memory = &memory;
-		this->dataStack = &dataStack;
-	}
-
-	void print(){
-		cout << *(dataStack->end()) << endl;
-	}
 	
-	void readInput(string filename){
+	void readInput(string filename,vector <Instruction>& mem){
 		ifstream file(filename);
 		if(file.is_open()){
+			string is_branch_inst;
+			int ind = 0;
+			while(getline(file, is_branch_inst)){
+				while(is_branch_inst[0]==9) is_branch_inst.erase(0,1);
+				while(is_branch_inst[0]==32) is_branch_inst.erase(0,1);
+				if(is_branch_inst.size()==0) continue;
+				if(is_branch_inst[0] == '.'){
+
+					// .foo:
+
+					string label = "";
+					for (int i = 1; i < is_branch_inst.size(); i++){
+						if(is_branch_inst[i]==':') break;
+						label += is_branch_inst[i];
+					}
+					label_begins[label] = ind;
+					
+				}
+				ind++;
+			}
+		}
+		else{
+			cout << "Failed to open file: " << filename << endl;
+		}
+		file.close();
+
+		file.open(filename);
+		ofstream outputFile("output.txt");
+		if(file.is_open()){
+			outputFile << "Memory: " << endl;
 			string line;
-			
 			int index = 0;
-			string current_label;
 			while(getline(file, line)){
-				while(line[0]==' ') line.erase(0,1);
+				while(line[0]==9) line.erase(0,1);
+				while(line[0]==32) line.erase(0,1);
 				if(line.size()>0){
 					Instruction instr;
-					if(line[0] == 'b'){
+					if(line[0]=='#' || line[0]=='@'){
+						// # comment
+						continue;
+					}
+					else if(line[0] == 'b'){
 
 						// b .foo
 						// beq .foo
@@ -68,8 +88,8 @@ class IO{
 							if(line[i] == ' ') break;
 							label += line[i];
 						}
-						current_label = label;
-
+						outputFile << branch << " " << label << ",";
+						
 						instr.name = branch;
 						instr.operand = label_begins[label];
 						input[index] = instr;
@@ -85,7 +105,8 @@ class IO{
 							if(line[i]==':') break;
 							label += line[i];
 						}
-						label_begins[label] = index;
+						outputFile << "label " << label << ",";
+						// label_begins[label] = index;
 						instr.name = "label";
 						instr.operand = 0;
 						input[index] = instr;
@@ -99,6 +120,7 @@ class IO{
 						// div 
 						// pop
 						// push 5
+						// call .foo
 
 						// instruction -> { add/sub/mul/div/pop , operand }
 						// instruction -> { push , 5 }
@@ -113,14 +135,26 @@ class IO{
 							operation += line[i];
 						}
 						string operand = "";
+						int oprnd = 0;
 						if(operation == "push"){
 							for (int i = temp; i < line.size(); i++){
+								oprnd = oprnd*10 + (line[i]-'0');
+							}
+							instr.operand = oprnd;
+							outputFile << operation << " " << oprnd << ",";
+						}
+						else if(operation == "call"){
+							// call .foo
+							for (int i = temp+1; i < line.size(); i++){
 								operand += line[i];
 							}
-							instr.operand = stoi(operand);
+							outputFile << operation << " " << operand << ",";
+							instr.operand = label_begins[operand];
+
 						}
 						else{
 							instr.operand = 0;
+							outputFile << operation << ",";
 						}
 						instr.name = operation;
 						input[index] = instr;
@@ -130,10 +164,36 @@ class IO{
 				}			
 			}
 			file.close();
+			cout<<endl;
+			outputFile.close();
 		}
 		else{
 			cout << "Failed to open file: " << filename << endl;
 		}
+		for (int i = 0; i < input.size(); i++){
+			mem[i] = input[i];
+		}
+
+		
+		// if (outputFile.is_open()) {
+		// 	outputFile << "Memory: " << endl;
+		// 	for (int i = 0; i < input.size(); i++) {
+		// 		if(input[i].name == "push")
+		// 			outputFile << input[i].name << input[i].operand << ",";
+		// 		else if(input[i].name == "label")
+		// 			outputFile << "label "<<input[i].name << ",";
+		// 		else
+		// 			outputFile << input[i].name << ",";
+		// 	}
+		// 	outputFile.close();
+		// } else {
+		// 	cout << "Failed to open output file." << endl;
+		// }
+	}
+
+
+	void print(){
+		cout << *(dataStack->end()) << endl;
 	}
 
 	
