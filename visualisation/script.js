@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    document.getElementById('previous-button').addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateDisplay();
+        }
+    });
+
     function updateDisplay() {
         const instruction = instructions[currentIndex];
         document.getElementById('current-instruction').textContent = instruction.currentInstruction || '';
@@ -47,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateMemoryDisplay(memoryString, pc) {
-		pc = pc-1;
+		pc--;
         const memoryElement = document.getElementById('memory');
         memoryElement.innerHTML = ''; // Clear previous memory items
 
@@ -77,4 +84,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-});	
+});

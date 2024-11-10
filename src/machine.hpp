@@ -8,7 +8,6 @@
 #include <map>
 using namespace std;
 
-
 class Machine{
 
 	public:
