@@ -18,6 +18,7 @@ public:
 	IO ioModule;
 	int pc;
 	string current_branch = "main";
+	bool isPrint = false;
 
 	Machine(int memory_size, string filename)
 	{
@@ -103,6 +104,7 @@ public:
 			outputFile << "GT: " << alu.gt << endl;
 			outputFile << "EQ: " << alu.eq << endl;
 			outputFile << "Branch: " << current_branch << endl;
+			outputFile << "Output: ";
 
 			if (instr.name == "push")
 			{
@@ -110,18 +112,19 @@ public:
 			}
 			else if (instr.name == "bgt")
 			{
-				if(alu.gt == 1){
+				if (alu.gt == 1)
+				{
 					current_branch = ioModule.labels[instr.operand];
 				}
 				alu.gt_jump(instr.operand);
 			}
 			else if (instr.name == "beq")
 			{
-				if(alu.eq == 1){
+				if (alu.eq == 1)
+				{
 					current_branch = ioModule.labels[instr.operand];
 				}
 				alu.eq_jump(instr.operand);
-
 			}
 			else if (instr.name == "b")
 			{
@@ -135,6 +138,7 @@ public:
 			}
 			else if (instr.name == "ret")
 			{
+				current_branch = ioModule.labels[ioModule.input[alu.returnStack->back()].operand];
 				alu.ret();
 			}
 			else if (instr.name == "pop")
@@ -199,6 +203,7 @@ public:
 			}
 			else if (instr.name == "print")
 			{
+				outputFile << alu.dataStack->back() << endl;
 				alu.print();
 			}
 			else if (instr.name == "label")
@@ -241,6 +246,10 @@ public:
 			else
 			{
 				throw runtime_error("Invalid instruction");
+			}
+			if (!isPrint)
+			{
+				outputFile << " " << endl;
 			}
 
 			if (instr.name != "halt" && instr.name != "ret")

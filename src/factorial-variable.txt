@@ -1,0 +1,26 @@
+.FACTORIAL:
+   load n
+   push 1
+   cmp
+   pop
+   beq .BASE_CASE
+
+   load n
+   push 1
+   sub
+   store n
+   call .FACTORIAL
+   mul
+   ret
+
+.BASE_CASE:
+   ret
+
+.main:
+   var n
+   push 5
+   store n
+   call .FACTORIAL
+   print
+halt
+
