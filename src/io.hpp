@@ -14,13 +14,12 @@ struct var_instruction
 {
 	string name;
 	string var_name;
-	int val;
 };
 
 int hashString(string str)
 {
 	std::hash<std::string> hash_fn;
-    int hash16 = hash_fn(str);
+	int hash16 = hash_fn(str);
 	return hash16;
 }
 
@@ -28,17 +27,14 @@ class IO
 {
 public:
 	vector<Instruction> input;
-	vector<int> output;
 	map<string, int> label_begins;
 	map<int, string> labels;
 	vector<Instruction> *memory;
-	vector<pair<string, int>> variables;
 	vector<int> *dataStack;
 
 	IO()
 	{
 		this->input = vector<Instruction>(1024);
-		this->output = vector<int>(1024, 0);
 		this->label_begins = map<string, int>();
 	}
 
@@ -174,7 +170,8 @@ public:
 							}
 							instr.operand = label_begins[operand];
 						}
-						else if (operation == "var" || operation == "store" || operation == "load"){
+						else if (operation == "var" || operation == "store" || operation == "load")
+						{
 
 							string var_name = "";
 							for (int i = temp; i < line.size(); i++)
@@ -211,6 +208,79 @@ public:
 		for (int i = 0; i < input.size(); i++)
 		{
 			mem[i] = input[i];
+		}
+	}
+
+	void save_output(const int pc, const int gt, const int eq, const string branch, const vector<int> &dstack, const vector<int> &rstack, const string output, bool save_mem)
+	{
+
+		ofstream outputFile("../visualisation-sdl/output.txt", ios::app);
+		if (save_mem)
+		{
+			ofstream clearFile("../visualisation-sdl/output.txt", ios::out);
+			clearFile.close();
+			outputFile << "Memory: ";
+			for (int i = 0; i < input.size(); i++)
+			{
+				if (input[i].name == "var" || input[i].name == "store" || input[i].name == "load")
+				{
+					string operandStr = to_string(input[i].operand);
+					if (operandStr.length() > 4)
+					{
+						operandStr = operandStr.substr(0, 4);
+					}
+					outputFile << input[i].name << " " << operandStr << ",";
+				}
+				else if (input[i].name == "push")
+				{
+					outputFile << input[i].name << " " << input[i].operand << ",";
+				}
+				else if (input[i].name == "label")
+					outputFile << "label " << labels[input[i].operand] << ",";
+				else if (input[i].name == "b" || input[i].name == "beq" || input[i].name == "bgt" || input[i].name == "call")
+					outputFile << input[i].name << " " << labels[input[i].operand] << ",";
+				else
+					outputFile << input[i].name << ",";
+			}
+			outputFile << endl;
+		}
+		else
+		{
+			Instruction instr = input[pc];
+			outputFile << "\nCurrent Instruction: " << instr.name << " ";
+			if (instr.name == "push")
+			{
+				outputFile << instr.operand << "\n";
+			}
+			else if (instr.name == "bgt" || instr.name == "beq" || instr.name == "b" || instr.name == "call")
+			{
+				outputFile << labels[instr.operand] << "\n";
+			}
+			else if (instr.name == "label")
+			{
+				outputFile << labels[pc] << "\n";
+			}
+			else
+			{
+				outputFile << "\n";
+			}
+			outputFile << "Data Stack: ";
+			for (int i : dstack)
+			{
+				outputFile << i << " ";
+			}
+			outputFile << endl;
+			outputFile << "Return Stack: ";
+			for (int i : rstack)
+			{
+				outputFile << i << " ";
+			}
+			outputFile << endl;
+			outputFile << "PC: " << pc << endl;
+			outputFile << "GT: " << gt << endl;
+			outputFile << "EQ: " << eq << endl;
+			outputFile << "Branch: " << branch << endl;
+			outputFile << "Output: " << output << endl;
 		}
 	}
 };

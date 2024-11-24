@@ -19,6 +19,7 @@ public:
 	int pc;
 	string current_branch = "main";
 	bool isPrint = false;
+	string output = " ";
 
 	Machine(int memory_size, string filename)
 	{
@@ -34,77 +35,14 @@ public:
 	void run()
 	{
 
-		// for( int i = 0 ; i < ioModule.labels.size() ; i++ )
-		// {
-		// 	cout<<ioModule.labels[i]<<endl;
-		// }
-
-		ofstream outputFile("../visualisation-sdl/output.txt");
 		cout << "starting the machine..." << endl;
+		ioModule.save_output(pc, alu.gt, alu.eq, current_branch, dataStack, returnStack, output, true);
 
-		outputFile << "Memory: ";
-		for (int i = 0; i < ioModule.input.size(); i++)
-		{
-			if (ioModule.input[i].name == "var" || ioModule.input[i].name == "store" || ioModule.input[i].name == "load")
-			{
-				string operandStr = to_string(ioModule.input[i].operand);
-				if (operandStr.length() > 4)
-				{
-					operandStr = operandStr.substr(0, 4);
-				}
-				outputFile << ioModule.input[i].name << " " << operandStr << ",";
-			}
-			else if (ioModule.input[i].name == "push")
-			{
-				outputFile << ioModule.input[i].name << " " << ioModule.input[i].operand << ",";
-			}
-			else if (ioModule.input[i].name == "label")
-				outputFile << "label " << ioModule.labels[ioModule.input[i].operand] << ",";
-			else if (ioModule.input[i].name == "b" || ioModule.input[i].name == "beq" || ioModule.input[i].name == "bgt" || ioModule.input[i].name == "call")
-				outputFile << ioModule.input[i].name << " " << ioModule.labels[ioModule.input[i].operand] << ",";
-			else
-				outputFile << ioModule.input[i].name << ",";
-		}
-		outputFile << endl;
 		while (pc != -1 && pc < ioModule.input.size())
 		{
 			Instruction instr = ioModule.input[pc];
 			int temp = pc;
-			outputFile << "\nCurrent Instruction: " << instr.name << " ";
-			if (instr.name == "push")
-			{
-				outputFile << instr.operand << "\n";
-			}
-			else if (instr.name == "bgt" || instr.name == "beq" || instr.name == "b" || instr.name == "call")
-			{
-				outputFile << ioModule.labels[instr.operand] << "\n";
-			}
-			else if (instr.name == "label")
-			{
-				outputFile << ioModule.labels[pc] << "\n";
-			}
-			else
-			{
-				outputFile << "\n";
-			}
-
-			outputFile << "Data Stack: ";
-			for (int i : dataStack)
-			{
-				outputFile << i << " ";
-			}
-			outputFile << endl;
-			outputFile << "Return Stack: ";
-			for (int i : returnStack)
-			{
-				outputFile << i << " ";
-			}
-			outputFile << endl;
-			outputFile << "PC: " << temp << endl;
-			outputFile << "GT: " << alu.gt << endl;
-			outputFile << "EQ: " << alu.eq << endl;
-			outputFile << "Branch: " << current_branch << endl;
-			outputFile << "Output: ";
+			ioModule.save_output(pc, alu.gt, alu.eq, current_branch, dataStack, returnStack, output, false);
 
 			if (instr.name == "push")
 			{
@@ -203,7 +141,7 @@ public:
 			}
 			else if (instr.name == "print")
 			{
-				outputFile << alu.dataStack->back() << endl;
+				output = to_string(alu.dataStack->back());
 				alu.print();
 			}
 			else if (instr.name == "label")
@@ -246,10 +184,6 @@ public:
 			else
 			{
 				throw runtime_error("Invalid instruction");
-			}
-			if (!isPrint)
-			{
-				outputFile << " " << endl;
 			}
 
 			if (instr.name != "halt" && instr.name != "ret")
