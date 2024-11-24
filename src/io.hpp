@@ -17,10 +17,10 @@ struct var_instruction
 	int val;
 };
 
-int16_t hashString(string str)
+int hashString(string str)
 {
 	std::hash<std::string> hash_fn;
-    int16_t hash16 = static_cast<uint16_t>(hash_fn(str) & 0xFFFF);
+    int hash16 = hash_fn(str);
 	return hash16;
 }
 
@@ -178,7 +178,6 @@ public:
 						else if (operation == "var" || operation == "store" || operation == "load"){
 
 							string var_name = "";
-							int val = 0;
 							for (int i = temp; i < line.size(); i++)
 							{
 								if (line[i] == ' ')
@@ -188,19 +187,8 @@ public:
 								}
 								var_name += line[i];
 							}
-							for (int i = temp; i < line.size(); i++)
-							{
-								val = val * 10 + (line[i] - '0');
-							}
-							if( val > 0xFFFF ){
-								throw runtime_error("Value out of range");
-							}	
-							int16_t var_name_hash = hashString(var_name);
-							if( operation != "store"){
-								val = 0;
-							}
-							val = val + ( var_name_hash << 16 );
-							instr.operand = val;
+							int var_name_hash = hashString(var_name);
+							instr.operand = var_name_hash;
 						}
 						else
 						{

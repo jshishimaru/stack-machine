@@ -97,6 +97,8 @@ void renderText(const string &text, int x, int y , int colorCode )
 {
 	SDL_Color color = {170, 20, 240, 255}; 
 	if( colorCode == 1 ) color = {238, 238, 238, 255};
+	if( colorCode == 2 ) color = {255, 101, 0, 255};
+	if( colorCode == 3 ) color = {0, 0, 0, 255};
 	SDL_Surface *surface = TTF_RenderText_Solid(font, text.c_str(), color);
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_Rect destRect = {x, y, surface->w, surface->h};
@@ -144,9 +146,12 @@ int main ( int argc, char* argv[] ){
 
 	bool running = true ;
 	int instructionIndex = 0;
-	SDL_Rect nextButtonRect = {450, 250, 100, 50};
-	SDL_Rect prevButtonRect = {200, 250, 150, 50};
-	SDL_Rect instructionTextBox = {50, 500, 600, 50};
+	SDL_Rect nextButtonRect = {600, 750, 150, 50};
+	SDL_Rect prevButtonRect = {400, 750, 150, 50};
+	SDL_Rect instructionTextBox = {250, 600, 600, 50};
+
+	SDL_Rect dataStackRect = {10, 30, 300, 500};
+	SDL_Rect returnStackRect = {360 , 30, 300, 500};
 
 	while( running ){
 
@@ -179,36 +184,55 @@ int main ( int argc, char* argv[] ){
 
 		SDL_SetRenderDrawColor(renderer, 238, 238, 238, 255);
 		SDL_RenderFillRect(renderer, &nextButtonRect);
-		renderText("Next", nextButtonRect.x + 20, nextButtonRect.y + 10 , 0);
+		renderText("Next", nextButtonRect.x + 20, nextButtonRect.y + 10 , 3);
 
 		SDL_SetRenderDrawColor(renderer, 238, 238, 238, 255);
 		SDL_RenderFillRect(renderer, &prevButtonRect);
-		renderText("Previous", prevButtonRect.x + 10, prevButtonRect.y + 10 , 0 );
+		renderText("Previous", prevButtonRect.x + 10, prevButtonRect.y + 10 , 3 );
 
 		SDL_SetRenderDrawColor(renderer, 238, 238, 238, 255);
 		SDL_RenderFillRect(renderer, &instructionTextBox);
-		renderText("Current Instruction: " + currentInstruction, instructionTextBox.x + 10, instructionTextBox.y + 10, 0);
+		renderText("Current Instruction: " + currentInstruction, instructionTextBox.x + 10, instructionTextBox.y + 10, 3);
+		renderText("                     " + currentInstruction, instructionTextBox.x + 10, instructionTextBox.y + 10, 0);
+		//		renderText( currentInstruction , instructionTextBox.x + 300 , instructionTextBox.y + 10 , 3);
 
-		renderText("Data Stack:", 50, 50 , 0);
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White color for boundaries
+		SDL_RenderDrawRect(renderer, &dataStackRect);
+		SDL_RenderDrawRect(renderer, &returnStackRect);
+
+		renderText("Data Stack:", 50, 50 , 2);
 		for (size_t i = 0; i < dataStack.size(); ++i)
 		{
-			renderText(dataStack[i], 50, 80 + i * 30 , 0);
+			renderText(dataStack[i], 120, 100 + i * 30 , 0);
 		}
 
-		renderText("Return Stack:", 400, 50 , 0);
+		renderText("Return Stack:", 400, 50 , 2);
 		for (size_t i = 0; i < returnStack.size(); ++i)
 		{	
-			renderText(returnStack[i], 400, 80 + i * 30 , 0);
+			renderText(returnStack[i], 420, 100 + i * 30 , 0);
 		}
 
-		renderText("Memory Stack:", 950, 50 , 0);
+		renderText("Memory Stack:", 950, 50 , 2);
 		for (size_t i = 0; i < currentMemory.size(); ++i)
 		{
-			if( i == cur_inst ) renderText( currentMemory[i], 950 , 80 + i * 35 , 1);
-			else renderText(currentMemory[i], 950, 80 + i * 35 , 0);
+			if( i == cur_inst )
+			{ 
+				renderText( currentMemory[i], 950 , 100 + i * 35 , 1);
+				renderText( "PC :" , 880 , 100 + i * 35 , 1);
+			}
+			else renderText(currentMemory[i], 950, 100 + i * 35 , 0);
 		}
 
 		SDL_RenderPresent(renderer);
 	}
+
+	TTF_CloseFont(font);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	TTF_Quit();
+	IMG_Quit();
+	SDL_Quit();
+
+	return 0;
 
 }

@@ -1,111 +1,251 @@
-Memory: label main,push 1,push 2,push 3,add,and,push 5,dec,push 5,inc,swap,var,var,store,load,print,store,load,print,add,print,halt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Memory: label FACTORIAL,push 1,cmp,beq base,pop,dup,push 1,sub,call FACTORIAL,mul,ret,label FACTORIAL,pop,ret,label FACTORIAL,push 5,call FACTORIAL,print,halt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 Current Instruction: label main
 Data Stack: 
 Return Stack: 
-PC: 0
-
-Current Instruction: push 1
-Data Stack: 
-Return Stack: 
-PC: 1
-
-Current Instruction: push 2
-Data Stack: 1 
-Return Stack: 
-PC: 2
-
-Current Instruction: push 3
-Data Stack: 1 2 
-Return Stack: 
-PC: 3
-
-Current Instruction: add 
-Data Stack: 1 2 3 
-Return Stack: 
-PC: 4
-
-Current Instruction: and 
-Data Stack: 1 5 
-Return Stack: 
-PC: 5
-
-Current Instruction: push 5
-Data Stack: 1 
-Return Stack: 
-PC: 6
-
-Current Instruction: dec 
-Data Stack: 1 5 
-Return Stack: 
-PC: 7
-
-Current Instruction: push 5
-Data Stack: 1 4 
-Return Stack: 
-PC: 8
-
-Current Instruction: inc 
-Data Stack: 1 4 5 
-Return Stack: 
-PC: 9
-
-Current Instruction: swap 
-Data Stack: 1 4 6 
-Return Stack: 
-PC: 10
-
-Current Instruction: var 
-Data Stack: 1 6 4 
-Return Stack: 
-PC: 11
-
-Current Instruction: var 
-Data Stack: 1 6 4 
-Return Stack: 
-PC: 12
-
-Current Instruction: store 
-Data Stack: 1 6 4 
-Return Stack: 
-PC: 13
-
-Current Instruction: load 
-Data Stack: 1 6 4 
-Return Stack: 
 PC: 14
 
-Current Instruction: print 
-Data Stack: 1 6 4 5 
+Current Instruction: push 5
+Data Stack: 
 Return Stack: 
 PC: 15
 
-Current Instruction: store 
-Data Stack: 1 6 4 5 
+Current Instruction: call FACTORIAL
+Data Stack: 5 
 Return Stack: 
 PC: 16
 
-Current Instruction: load 
-Data Stack: 1 6 4 5 
+Current Instruction: push 1
+Data Stack: 5 
+Return Stack: 17 
+PC: 1
+
+Current Instruction: cmp 
+Data Stack: 5 1 
+Return Stack: 17 
+PC: 2
+
+Current Instruction: beq base
+Data Stack: 5 1 
+Return Stack: 17 
+PC: 3
+
+Current Instruction: pop 
+Data Stack: 5 1 
+Return Stack: 17 
+PC: 4
+
+Current Instruction: dup 
+Data Stack: 5 
+Return Stack: 17 
+PC: 5
+
+Current Instruction: push 1
+Data Stack: 5 5 
+Return Stack: 17 
+PC: 6
+
+Current Instruction: sub 
+Data Stack: 5 5 1 
+Return Stack: 17 
+PC: 7
+
+Current Instruction: call FACTORIAL
+Data Stack: 5 4 
+Return Stack: 17 
+PC: 8
+
+Current Instruction: push 1
+Data Stack: 5 4 
+Return Stack: 17 9 
+PC: 1
+
+Current Instruction: cmp 
+Data Stack: 5 4 1 
+Return Stack: 17 9 
+PC: 2
+
+Current Instruction: beq base
+Data Stack: 5 4 1 
+Return Stack: 17 9 
+PC: 3
+
+Current Instruction: pop 
+Data Stack: 5 4 1 
+Return Stack: 17 9 
+PC: 4
+
+Current Instruction: dup 
+Data Stack: 5 4 
+Return Stack: 17 9 
+PC: 5
+
+Current Instruction: push 1
+Data Stack: 5 4 4 
+Return Stack: 17 9 
+PC: 6
+
+Current Instruction: sub 
+Data Stack: 5 4 4 1 
+Return Stack: 17 9 
+PC: 7
+
+Current Instruction: call FACTORIAL
+Data Stack: 5 4 3 
+Return Stack: 17 9 
+PC: 8
+
+Current Instruction: push 1
+Data Stack: 5 4 3 
+Return Stack: 17 9 9 
+PC: 1
+
+Current Instruction: cmp 
+Data Stack: 5 4 3 1 
+Return Stack: 17 9 9 
+PC: 2
+
+Current Instruction: beq base
+Data Stack: 5 4 3 1 
+Return Stack: 17 9 9 
+PC: 3
+
+Current Instruction: pop 
+Data Stack: 5 4 3 1 
+Return Stack: 17 9 9 
+PC: 4
+
+Current Instruction: dup 
+Data Stack: 5 4 3 
+Return Stack: 17 9 9 
+PC: 5
+
+Current Instruction: push 1
+Data Stack: 5 4 3 3 
+Return Stack: 17 9 9 
+PC: 6
+
+Current Instruction: sub 
+Data Stack: 5 4 3 3 1 
+Return Stack: 17 9 9 
+PC: 7
+
+Current Instruction: call FACTORIAL
+Data Stack: 5 4 3 2 
+Return Stack: 17 9 9 
+PC: 8
+
+Current Instruction: push 1
+Data Stack: 5 4 3 2 
+Return Stack: 17 9 9 9 
+PC: 1
+
+Current Instruction: cmp 
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 
+PC: 2
+
+Current Instruction: beq base
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 
+PC: 3
+
+Current Instruction: pop 
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 
+PC: 4
+
+Current Instruction: dup 
+Data Stack: 5 4 3 2 
+Return Stack: 17 9 9 9 
+PC: 5
+
+Current Instruction: push 1
+Data Stack: 5 4 3 2 2 
+Return Stack: 17 9 9 9 
+PC: 6
+
+Current Instruction: sub 
+Data Stack: 5 4 3 2 2 1 
+Return Stack: 17 9 9 9 
+PC: 7
+
+Current Instruction: call FACTORIAL
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 
+PC: 8
+
+Current Instruction: push 1
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 9 
+PC: 1
+
+Current Instruction: cmp 
+Data Stack: 5 4 3 2 1 1 
+Return Stack: 17 9 9 9 9 
+PC: 2
+
+Current Instruction: beq base
+Data Stack: 5 4 3 2 1 1 
+Return Stack: 17 9 9 9 9 
+PC: 3
+
+Current Instruction: pop 
+Data Stack: 5 4 3 2 1 1 
+Return Stack: 17 9 9 9 9 
+PC: 12
+
+Current Instruction: ret 
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 9 
+PC: 13
+
+Current Instruction: mul 
+Data Stack: 5 4 3 2 1 
+Return Stack: 17 9 9 9 
+PC: 9
+
+Current Instruction: ret 
+Data Stack: 5 4 3 2 
+Return Stack: 17 9 9 9 
+PC: 10
+
+Current Instruction: mul 
+Data Stack: 5 4 3 2 
+Return Stack: 17 9 9 
+PC: 9
+
+Current Instruction: ret 
+Data Stack: 5 4 6 
+Return Stack: 17 9 9 
+PC: 10
+
+Current Instruction: mul 
+Data Stack: 5 4 6 
+Return Stack: 17 9 
+PC: 9
+
+Current Instruction: ret 
+Data Stack: 5 24 
+Return Stack: 17 9 
+PC: 10
+
+Current Instruction: mul 
+Data Stack: 5 24 
+Return Stack: 17 
+PC: 9
+
+Current Instruction: ret 
+Data Stack: 120 
+Return Stack: 17 
+PC: 10
+
+Current Instruction: print 
+Data Stack: 120 
 Return Stack: 
 PC: 17
 
-Current Instruction: print 
-Data Stack: 1 6 4 5 3 
+Current Instruction: halt 
+Data Stack: 120 
 Return Stack: 
 PC: 18
-
-Current Instruction: add 
-Data Stack: 1 6 4 5 3 
-Return Stack: 
-PC: 19
-
-Current Instruction: print 
-Data Stack: 1 6 4 8 
-Return Stack: 
-PC: 20
-
-Current Instruction: halt 
-Data Stack: 1 6 4 8 
-Return Stack: 
-PC: 21

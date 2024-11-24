@@ -25,23 +25,39 @@ public:
 		this->dataStack = vector<int>();
 		this->returnStack = vector<int>();
 		ioModule.readInput(filename, (this->memory));
-		this->alu.setStacks(this->dataStack, this->returnStack, this->pc , this->memory);
+		this->alu.setStacks(this->dataStack, this->returnStack, this->pc, this->memory);
 		this->pc = ioModule.label_begins["main"];
 	}
 
 	void run()
 	{
 
-		ofstream outputFile("../visualisation/output.txt");
+		// for( int i = 0 ; i < ioModule.labels.size() ; i++ )
+		// {
+		// 	cout<<ioModule.labels[i]<<endl;
+		// }
+
+		ofstream outputFile("../visualisation-sdl/output.txt");
 		cout << "starting the machine..." << endl;
 
 		outputFile << "Memory: ";
 		for (int i = 0; i < ioModule.input.size(); i++)
 		{
-			if (ioModule.input[i].name == "push")
+			if (ioModule.input[i].name == "var" || ioModule.input[i].name == "store" || ioModule.input[i].name == "load")
+			{
+				string operandStr = to_string(ioModule.input[i].operand);
+				if (operandStr.length() > 4)
+				{
+					operandStr = operandStr.substr(0, 4);
+				}
+				outputFile << ioModule.input[i].name << " " << operandStr << ",";
+			}
+			else if (ioModule.input[i].name == "push")
+			{
 				outputFile << ioModule.input[i].name << " " << ioModule.input[i].operand << ",";
+			}
 			else if (ioModule.input[i].name == "label")
-				outputFile << "label " << ioModule.labels[pc] << ",";
+				outputFile << "label " << ioModule.labels[ioModule.input[i].operand] << ",";
 			else if (ioModule.input[i].name == "b" || ioModule.input[i].name == "beq" || ioModule.input[i].name == "bgt" || ioModule.input[i].name == "call")
 				outputFile << ioModule.input[i].name << " " << ioModule.labels[ioModule.input[i].operand] << ",";
 			else
@@ -214,11 +230,10 @@ public:
 				throw runtime_error("Invalid instruction");
 			}
 
-			if( instr.name != "halt" && instr.name != "ret" )
+			if (instr.name != "halt" && instr.name != "ret")
 			{
 				pc++;
 			}
-
 		}
 		cout << "Ending the machine..." << endl;
 	}
