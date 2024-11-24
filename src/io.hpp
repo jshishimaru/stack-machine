@@ -59,7 +59,6 @@ public:
 					continue;
 				if (is_branch_inst[0] == '.')
 				{
-
 					string label = "";
 					for (int i = 1; i < is_branch_inst.size(); i++)
 					{
@@ -138,7 +137,7 @@ public:
 						}
 						// label_begins[label] = index;
 						instr.name = "label";
-						instr.operand = 0;
+						instr.operand = label_begins[label];
 						input[index] = instr;
 					}
 
