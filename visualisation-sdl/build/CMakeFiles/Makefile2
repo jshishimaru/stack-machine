@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jshishimaru/Courses/COA/stack-machine
+CMAKE_SOURCE_DIR = /home/nitin/Public/COA/COA_Project/stack-machine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build
+CMAKE_BINARY_DIR = /home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/stack-machine.dir/clean
 CMakeFiles/stack-machine.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stack-machine.dir/build.make CMakeFiles/stack-machine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stack-machine.dir/build.make CMakeFiles/stack-machine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/CMakeFiles --progress-num=1,2 "Built target stack-machine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/CMakeFiles --progress-num=1,2 "Built target stack-machine"
 .PHONY : CMakeFiles/stack-machine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/stack-machine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/stack-machine.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/CMakeFiles 0
 .PHONY : CMakeFiles/stack-machine.dir/rule
 
 # Convenience name for target.

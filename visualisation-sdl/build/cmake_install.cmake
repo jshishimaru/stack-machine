@@ -1,4 +1,4 @@
-# Install script for directory: /home/jshishimaru/Courses/COA/stack-machine
+# Install script for directory: /home/nitin/Public/COA/COA_Project/stack-machine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

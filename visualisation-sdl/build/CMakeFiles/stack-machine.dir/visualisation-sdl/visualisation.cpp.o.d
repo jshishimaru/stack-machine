@@ -1,5 +1,5 @@
 CMakeFiles/stack-machine.dir/visualisation-sdl/visualisation.cpp.o: \
- /home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/visualisation.cpp \
+ /home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/visualisation.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \

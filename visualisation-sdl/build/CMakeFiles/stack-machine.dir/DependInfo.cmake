@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/visualisation.cpp" "CMakeFiles/stack-machine.dir/visualisation-sdl/visualisation.cpp.o" "gcc" "CMakeFiles/stack-machine.dir/visualisation-sdl/visualisation.cpp.o.d"
+  "/home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/visualisation.cpp" "CMakeFiles/stack-machine.dir/visualisation-sdl/visualisation.cpp.o" "gcc" "CMakeFiles/stack-machine.dir/visualisation-sdl/visualisation.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
