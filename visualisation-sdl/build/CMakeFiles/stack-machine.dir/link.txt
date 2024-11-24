@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic "CMakeFiles/stack-machine.dir/visualisation-sdl/visualisation.cpp.o" -o stack-machine  -lSDL2main -lSDL2 -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2 -lSDL2_image -lSDL2_ttf 

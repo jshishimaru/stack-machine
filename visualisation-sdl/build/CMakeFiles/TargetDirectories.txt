@@ -1,3 +1,0 @@
-/home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/CMakeFiles/stack-machine.dir
-/home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/CMakeFiles/edit_cache.dir
-/home/nitin/Public/COA/COA_Project/stack-machine/visualisation-sdl/build/CMakeFiles/rebuild_cache.dir

@@ -17,6 +17,7 @@ public:
 	ALU alu;
 	IO ioModule;
 	int pc;
+	string current_branch = "main";
 
 	Machine(int memory_size, string filename)
 	{
@@ -99,6 +100,9 @@ public:
 			}
 			outputFile << endl;
 			outputFile << "PC: " << temp << endl;
+			outputFile << "GT: " << alu.gt << endl;
+			outputFile << "EQ: " << alu.eq << endl;
+			outputFile << "Branch: " << current_branch << endl;
 
 			if (instr.name == "push")
 			{
@@ -106,18 +110,27 @@ public:
 			}
 			else if (instr.name == "bgt")
 			{
+				if(alu.gt == 1){
+					current_branch = ioModule.labels[instr.operand];
+				}
 				alu.gt_jump(instr.operand);
 			}
 			else if (instr.name == "beq")
 			{
+				if(alu.eq == 1){
+					current_branch = ioModule.labels[instr.operand];
+				}
 				alu.eq_jump(instr.operand);
+
 			}
 			else if (instr.name == "b")
 			{
+				current_branch = ioModule.labels[instr.operand];
 				alu.jump(instr.operand);
 			}
 			else if (instr.name == "call")
 			{
+				current_branch = ioModule.labels[instr.operand];
 				alu.call(instr.operand);
 			}
 			else if (instr.name == "ret")

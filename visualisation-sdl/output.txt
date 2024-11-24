@@ -4,248 +4,398 @@ Current Instruction: label main
 Data Stack: 
 Return Stack: 
 PC: 14
+GT: 0
+EQ: 0
+Branch: main
 
 Current Instruction: push 5
 Data Stack: 
 Return Stack: 
 PC: 15
+GT: 0
+EQ: 0
+Branch: main
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 
 Return Stack: 
 PC: 16
+GT: 0
+EQ: 0
+Branch: main
 
 Current Instruction: push 1
 Data Stack: 5 
 Return Stack: 17 
 PC: 1
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: cmp 
 Data Stack: 5 1 
 Return Stack: 17 
 PC: 2
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: beq base
 Data Stack: 5 1 
 Return Stack: 17 
 PC: 3
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: pop 
 Data Stack: 5 1 
 Return Stack: 17 
 PC: 4
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: dup 
 Data Stack: 5 
 Return Stack: 17 
 PC: 5
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 5 
 Return Stack: 17 
 PC: 6
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: sub 
 Data Stack: 5 5 1 
 Return Stack: 17 
 PC: 7
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 
 Return Stack: 17 
 PC: 8
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 
 Return Stack: 17 9 
 PC: 1
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: cmp 
 Data Stack: 5 4 1 
 Return Stack: 17 9 
 PC: 2
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: beq base
 Data Stack: 5 4 1 
 Return Stack: 17 9 
 PC: 3
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: pop 
 Data Stack: 5 4 1 
 Return Stack: 17 9 
 PC: 4
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: dup 
 Data Stack: 5 4 
 Return Stack: 17 9 
 PC: 5
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 4 
 Return Stack: 17 9 
 PC: 6
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: sub 
 Data Stack: 5 4 4 1 
 Return Stack: 17 9 
 PC: 7
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 3 
 Return Stack: 17 9 
 PC: 8
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 3 
 Return Stack: 17 9 9 
 PC: 1
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: cmp 
 Data Stack: 5 4 3 1 
 Return Stack: 17 9 9 
 PC: 2
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: beq base
 Data Stack: 5 4 3 1 
 Return Stack: 17 9 9 
 PC: 3
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: pop 
 Data Stack: 5 4 3 1 
 Return Stack: 17 9 9 
 PC: 4
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: dup 
 Data Stack: 5 4 3 
 Return Stack: 17 9 9 
 PC: 5
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 3 3 
 Return Stack: 17 9 9 
 PC: 6
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: sub 
 Data Stack: 5 4 3 3 1 
 Return Stack: 17 9 9 
 PC: 7
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 3 2 
 Return Stack: 17 9 9 
 PC: 8
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 3 2 
 Return Stack: 17 9 9 9 
 PC: 1
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: cmp 
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 
 PC: 2
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: beq base
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 
 PC: 3
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: pop 
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 
 PC: 4
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: dup 
 Data Stack: 5 4 3 2 
 Return Stack: 17 9 9 9 
 PC: 5
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 3 2 2 
 Return Stack: 17 9 9 9 
 PC: 6
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: sub 
 Data Stack: 5 4 3 2 2 1 
 Return Stack: 17 9 9 9 
 PC: 7
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 
 PC: 8
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: push 1
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 9 
 PC: 1
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: cmp 
 Data Stack: 5 4 3 2 1 1 
 Return Stack: 17 9 9 9 9 
 PC: 2
+GT: 0
+EQ: 0
+Branch: FACTORIAL
 
 Current Instruction: beq base
 Data Stack: 5 4 3 2 1 1 
 Return Stack: 17 9 9 9 9 
 PC: 3
+GT: 0
+EQ: 1
+Branch: FACTORIAL
 
 Current Instruction: pop 
 Data Stack: 5 4 3 2 1 1 
 Return Stack: 17 9 9 9 9 
 PC: 12
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: ret 
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 9 
 PC: 13
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: mul 
 Data Stack: 5 4 3 2 1 
 Return Stack: 17 9 9 9 
 PC: 9
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: ret 
 Data Stack: 5 4 3 2 
 Return Stack: 17 9 9 9 
 PC: 10
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: mul 
 Data Stack: 5 4 3 2 
 Return Stack: 17 9 9 
 PC: 9
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: ret 
 Data Stack: 5 4 6 
 Return Stack: 17 9 9 
 PC: 10
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: mul 
 Data Stack: 5 4 6 
 Return Stack: 17 9 
 PC: 9
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: ret 
 Data Stack: 5 24 
 Return Stack: 17 9 
 PC: 10
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: mul 
 Data Stack: 5 24 
 Return Stack: 17 
 PC: 9
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: ret 
 Data Stack: 120 
 Return Stack: 17 
 PC: 10
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: print 
 Data Stack: 120 
 Return Stack: 
 PC: 17
+GT: 0
+EQ: 1
+Branch: base
 
 Current Instruction: halt 
 Data Stack: 120 
 Return Stack: 
 PC: 18
+GT: 0
+EQ: 1
+Branch: base

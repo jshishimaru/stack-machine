@@ -19,9 +19,10 @@ vector <string> memory;
 vector <string> currentMemory;
 int pc;
 int cur_inst;
+
 string currentInstruction;
 
-vector <vector <string> > inputBuffer(0,vector<string>(4));
+vector <vector <string> > inputBuffer(0,vector<string>(7));
 
 void takeInput(){
 
@@ -41,11 +42,9 @@ void takeInput(){
 
 	}
 
-	bool flag[4];
-	memset( flag , 0 , sizeof(flag));
 	while( getline(cin,line)){
 
-		vector <string> instruction(4);
+		vector <string> instruction(7);
 		if (line.find("Current Instruction:") != string::npos)
 		{
 			instruction[0] = line.substr(21);
@@ -55,6 +54,12 @@ void takeInput(){
 			instruction[2] = line.substr(14);
 			getline( cin , line );
 			instruction[3] = line.substr(4);
+			getline( cin , line );
+			instruction[4] = line.substr(4);
+			getline( cin , line );
+			instruction[5] = line.substr(4);
+			getline( cin , line );
+			instruction[6] = line.substr(8);
 			inputBuffer.push_back(instruction);
 			instruction.clear();
 		}
@@ -76,8 +81,7 @@ void init(){
 	TTF_Init();
 
 	font = TTF_OpenFont("fonts/font.ttf", 24);
-	if (!font)
-	{
+	if (!font){
 		cerr << "Failed to load font: " << TTF_GetError() << endl;
 		exit(1);
 	}
