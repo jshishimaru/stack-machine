@@ -7,6 +7,7 @@ PC: 14
 GT: 0
 EQ: 0
 Branch: main
+Output:  
 
 Current Instruction: push 5
 Data Stack: 
@@ -15,6 +16,7 @@ PC: 15
 GT: 0
 EQ: 0
 Branch: main
+Output:  
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 
@@ -23,6 +25,7 @@ PC: 16
 GT: 0
 EQ: 0
 Branch: main
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 
@@ -31,6 +34,7 @@ PC: 1
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: cmp 
 Data Stack: 5 1 
@@ -39,6 +43,7 @@ PC: 2
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: beq base
 Data Stack: 5 1 
@@ -47,6 +52,7 @@ PC: 3
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: pop 
 Data Stack: 5 1 
@@ -55,6 +61,7 @@ PC: 4
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: dup 
 Data Stack: 5 
@@ -63,6 +70,7 @@ PC: 5
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 5 
@@ -71,6 +79,7 @@ PC: 6
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: sub 
 Data Stack: 5 5 1 
@@ -79,6 +88,7 @@ PC: 7
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 
@@ -87,6 +97,7 @@ PC: 8
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 
@@ -95,6 +106,7 @@ PC: 1
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: cmp 
 Data Stack: 5 4 1 
@@ -103,6 +115,7 @@ PC: 2
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: beq base
 Data Stack: 5 4 1 
@@ -111,6 +124,7 @@ PC: 3
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: pop 
 Data Stack: 5 4 1 
@@ -119,6 +133,7 @@ PC: 4
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: dup 
 Data Stack: 5 4 
@@ -127,6 +142,7 @@ PC: 5
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 4 
@@ -135,6 +151,7 @@ PC: 6
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: sub 
 Data Stack: 5 4 4 1 
@@ -143,6 +160,7 @@ PC: 7
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 3 
@@ -151,6 +169,7 @@ PC: 8
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 3 
@@ -159,6 +178,7 @@ PC: 1
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: cmp 
 Data Stack: 5 4 3 1 
@@ -167,6 +187,7 @@ PC: 2
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: beq base
 Data Stack: 5 4 3 1 
@@ -175,6 +196,7 @@ PC: 3
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: pop 
 Data Stack: 5 4 3 1 
@@ -183,6 +205,7 @@ PC: 4
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: dup 
 Data Stack: 5 4 3 
@@ -191,6 +214,7 @@ PC: 5
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 3 3 
@@ -199,6 +223,7 @@ PC: 6
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: sub 
 Data Stack: 5 4 3 3 1 
@@ -207,6 +232,7 @@ PC: 7
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 3 2 
@@ -215,6 +241,7 @@ PC: 8
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 3 2 
@@ -223,6 +250,7 @@ PC: 1
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: cmp 
 Data Stack: 5 4 3 2 1 
@@ -231,6 +259,7 @@ PC: 2
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: beq base
 Data Stack: 5 4 3 2 1 
@@ -239,6 +268,7 @@ PC: 3
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: pop 
 Data Stack: 5 4 3 2 1 
@@ -247,6 +277,7 @@ PC: 4
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: dup 
 Data Stack: 5 4 3 2 
@@ -255,6 +286,7 @@ PC: 5
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 3 2 2 
@@ -263,6 +295,7 @@ PC: 6
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: sub 
 Data Stack: 5 4 3 2 2 1 
@@ -271,6 +304,7 @@ PC: 7
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: call FACTORIAL
 Data Stack: 5 4 3 2 1 
@@ -279,6 +313,7 @@ PC: 8
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: push 1
 Data Stack: 5 4 3 2 1 
@@ -287,6 +322,7 @@ PC: 1
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: cmp 
 Data Stack: 5 4 3 2 1 1 
@@ -295,6 +331,7 @@ PC: 2
 GT: 0
 EQ: 0
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: beq base
 Data Stack: 5 4 3 2 1 1 
@@ -303,6 +340,7 @@ PC: 3
 GT: 0
 EQ: 1
 Branch: FACTORIAL
+Output:  
 
 Current Instruction: pop 
 Data Stack: 5 4 3 2 1 1 
@@ -311,6 +349,7 @@ PC: 12
 GT: 0
 EQ: 1
 Branch: base
+Output:  
 
 Current Instruction: ret 
 Data Stack: 5 4 3 2 1 
@@ -319,6 +358,7 @@ PC: 13
 GT: 0
 EQ: 1
 Branch: base
+Output:  
 
 Current Instruction: mul 
 Data Stack: 5 4 3 2 1 
@@ -326,7 +366,8 @@ Return Stack: 17 9 9 9
 PC: 9
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: ret 
 Data Stack: 5 4 3 2 
@@ -334,7 +375,8 @@ Return Stack: 17 9 9 9
 PC: 10
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: mul 
 Data Stack: 5 4 3 2 
@@ -342,7 +384,8 @@ Return Stack: 17 9 9
 PC: 9
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: ret 
 Data Stack: 5 4 6 
@@ -350,7 +393,8 @@ Return Stack: 17 9 9
 PC: 10
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: mul 
 Data Stack: 5 4 6 
@@ -358,7 +402,8 @@ Return Stack: 17 9
 PC: 9
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: ret 
 Data Stack: 5 24 
@@ -366,7 +411,8 @@ Return Stack: 17 9
 PC: 10
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: mul 
 Data Stack: 5 24 
@@ -374,7 +420,8 @@ Return Stack: 17
 PC: 9
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: ret 
 Data Stack: 120 
@@ -382,7 +429,8 @@ Return Stack: 17
 PC: 10
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
 
 Current Instruction: print 
 Data Stack: 120 
@@ -390,7 +438,9 @@ Return Stack:
 PC: 17
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output: 120
+ 
 
 Current Instruction: halt 
 Data Stack: 120 
@@ -398,4 +448,5 @@ Return Stack:
 PC: 18
 GT: 0
 EQ: 1
-Branch: base
+Branch: FACTORIAL
+Output:  
