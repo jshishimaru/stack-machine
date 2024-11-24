@@ -1,0 +1,111 @@
+Memory: label main,push 1,push 2,push 3,add,and,push 5,dec,push 5,inc,swap,var,var,store,load,print,store,load,print,add,print,halt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+Current Instruction: label main
+Data Stack: 
+Return Stack: 
+PC: 0
+
+Current Instruction: push 1
+Data Stack: 
+Return Stack: 
+PC: 1
+
+Current Instruction: push 2
+Data Stack: 1 
+Return Stack: 
+PC: 2
+
+Current Instruction: push 3
+Data Stack: 1 2 
+Return Stack: 
+PC: 3
+
+Current Instruction: add 
+Data Stack: 1 2 3 
+Return Stack: 
+PC: 4
+
+Current Instruction: and 
+Data Stack: 1 5 
+Return Stack: 
+PC: 5
+
+Current Instruction: push 5
+Data Stack: 1 
+Return Stack: 
+PC: 6
+
+Current Instruction: dec 
+Data Stack: 1 5 
+Return Stack: 
+PC: 7
+
+Current Instruction: push 5
+Data Stack: 1 4 
+Return Stack: 
+PC: 8
+
+Current Instruction: inc 
+Data Stack: 1 4 5 
+Return Stack: 
+PC: 9
+
+Current Instruction: swap 
+Data Stack: 1 4 6 
+Return Stack: 
+PC: 10
+
+Current Instruction: var 
+Data Stack: 1 6 4 
+Return Stack: 
+PC: 11
+
+Current Instruction: var 
+Data Stack: 1 6 4 
+Return Stack: 
+PC: 12
+
+Current Instruction: store 
+Data Stack: 1 6 4 
+Return Stack: 
+PC: 13
+
+Current Instruction: load 
+Data Stack: 1 6 4 
+Return Stack: 
+PC: 14
+
+Current Instruction: print 
+Data Stack: 1 6 4 5 
+Return Stack: 
+PC: 15
+
+Current Instruction: store 
+Data Stack: 1 6 4 5 
+Return Stack: 
+PC: 16
+
+Current Instruction: load 
+Data Stack: 1 6 4 5 
+Return Stack: 
+PC: 17
+
+Current Instruction: print 
+Data Stack: 1 6 4 5 3 
+Return Stack: 
+PC: 18
+
+Current Instruction: add 
+Data Stack: 1 6 4 5 3 
+Return Stack: 
+PC: 19
+
+Current Instruction: print 
+Data Stack: 1 6 4 8 
+Return Stack: 
+PC: 20
+
+Current Instruction: halt 
+Data Stack: 1 6 4 8 
+Return Stack: 
+PC: 21

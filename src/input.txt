@@ -1,9 +1,22 @@
 .main:
 	push 1
-	print
-	drop
+	push 2
+	push 3
+	add
+	and
+	push 5
+	dec
+	push 5
+	inc
+	swap
 	var a
+	var b
 	store a 5
 	load a
+	print
+	store b 3
+	load b
+	print
+	add
 	print
 halt

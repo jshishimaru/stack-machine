@@ -54,11 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateMemoryDisplay(memoryString, pc) {
-		pc--;
         const memoryElement = document.getElementById('memory');
         memoryElement.innerHTML = ''; // Clear previous memory items
 
-        const memoryItems = memoryString.split(',').reverse();
+        const memoryItems = memoryString.split(',').filter(item => item.trim() !== '').reverse();
         memoryItems.forEach((item, index) => {
             const memoryItemElement = document.createElement('div');
             memoryItemElement.className = 'stack-item';
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stackElement.innerHTML = ''; // Clear previous stack items
 
         if (stackData) {
-            const stackItems = stackData.split(' ');
+            const stackItems = stackData.split(' ').filter(item => item.trim() !== '');
             stackItems.forEach(item => {
                 const stackItemElement = document.createElement('div');
                 stackItemElement.className = 'stack-item';

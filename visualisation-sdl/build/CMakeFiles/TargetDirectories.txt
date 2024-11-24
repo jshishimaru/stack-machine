@@ -1,0 +1,3 @@
+/home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/CMakeFiles/stack-machine.dir
+/home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/CMakeFiles/edit_cache.dir
+/home/jshishimaru/Courses/COA/stack-machine/visualisation-sdl/build/CMakeFiles/rebuild_cache.dir
